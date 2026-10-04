@@ -1,0 +1,42 @@
+/* Cores usadas em mais de uma página */
+:root {
+    --preto: #000000;
+    --branco: #FFFFFF;
+    --azul-marinho: #2E2E3C;
+    --vermelho: #F51212;
+    --cinza-claro: #D9D9D9;
+    --cinza-medio: #ABABAB;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+h1,
+h2,
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* Avatar do jogador: um círculo preto */
+.avatar {
+    width: 4.7rem;
+    height: 4.7rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: var(--preto);
+}

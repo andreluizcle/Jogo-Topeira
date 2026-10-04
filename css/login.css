@@ -1,0 +1,45 @@
+.cartao-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 26.8rem;
+    max-width: 100%;
+    min-height: 77.5vh;
+    margin-bottom: 2rem;
+    padding: 3.6rem 1rem 3rem;
+}
+
+.titulo-login {
+    margin-bottom: 3.6rem;
+    font-size: 4rem;
+}
+
+.formulario-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.campo-senha {
+    margin-top: 2.8rem;
+}
+
+.botao-login {
+    width: 13.75rem;
+    height: 2.5rem;
+    margin-top: 1rem;
+}
+
+.divisoria {
+    width: 100%;
+    margin: 1rem 0 0.8rem;
+    border: none;
+    border-top: 1px solid var(--preto);
+}
+
+.subtitulo-login {
+    color: var(--azul-marinho);
+    font-size: 2rem;
+    font-weight: 800;
+}

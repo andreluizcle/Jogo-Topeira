@@ -1,0 +1,82 @@
+/* Regras compartilhadas por login, cadastro e alterar-cadastro */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    background-color: var(--preto);
+}
+
+.cartao {
+    background-color: #BDB9B1;
+    border-radius: 1rem;
+}
+
+.titulo {
+    color: var(--azul-marinho);
+    font-weight: 900;
+    line-height: 1;
+}
+
+.campo {
+    width: 100%;
+    height: 2.5rem;
+    padding: 0 1rem;
+    background-color: #BDBDBD;
+    border: 1px solid var(--preto);
+    border-radius: 1.25rem;
+    color: var(--preto);
+    font-family: inherit;
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.campo::placeholder {
+    color: #222222;
+}
+
+.botao-rosa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #C98B87;
+    border: 1px solid var(--preto);
+    border-radius: 2rem;
+    color: var(--preto);
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+.mensagem-erro {
+    margin-top: 0.5rem;
+    color: #B00000;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Cartão largo usado em cadastro e alterar-cadastro */
+.cartao-grande {
+    width: 90.5%;
+    max-width: 70.6rem;
+    padding: 2rem 2.6rem 1.5rem;
+}
+
+.titulo-grande {
+    font-size: 5.6rem;
+}
+
+/* Linha com dois campos lado a lado */
+.linha-dupla {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+}
+
+.botao-grande {
+    width: 29.2rem;
+    max-width: 100%;
+    height: 3.9rem;
+    margin: 0 auto;
+}

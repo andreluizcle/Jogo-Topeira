@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo - Acerte a Toupeira</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,800;1,900&amp;display=swap">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/jogo.css">
+</head>
+<body>
+    <div class="pagina-jogo">
+        <aside class="lateral">
+            <div class="perfil">
+                <div class="avatar"></div>
+                <div>
+                    <p class="nome-jogador">Nome Usu.</p>
+                    <a class="link-sair" href="index.html">Sair</a>
+                </div>
+                <a class="engrenagem" href="alterar-cadastro.html" aria-label="Alterar cadastro" title="Alterar cadastro">&#9881;</a>
+            </div>
+
+            <section class="opcoes">
+                <h2 class="titulo-opcoes">OPÇÕES DE JOGO</h2>
+
+                <div class="opcao">
+                    <p class="rotulo-opcao">QUANTIA DE<br>TOUPEIRAS</p>
+                    <div class="contador">
+                        <span id="quantia-toupeiras" class="numero-toupeiras">20</span>
+                        <div class="setas">
+                            <button type="button" id="botao-aumentar" class="seta" aria-label="Aumentar quantia de toupeiras">&#8593;</button>
+                            <button type="button" id="botao-diminuir" class="seta" aria-label="Diminuir quantia de toupeiras">&#8595;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="opcao">
+                    <p class="rotulo-opcao">TABULEIRO</p>
+                    <div class="dimensoes">
+                        <input class="campo-dimensao" type="number" id="linhas" name="linhas" placeholder="Linhas" aria-label="Linhas do tabuleiro" min="2" max="8" value="6">
+                        <span class="vezes">×</span>
+                        <input class="campo-dimensao" type="number" id="colunas" name="colunas" placeholder="Colunas" aria-label="Colunas do tabuleiro" min="2" max="8" value="4">
+                    </div>
+                </div>
+
+                <!-- COMEÇAR e RECOMEÇAR só ganharão comportamento na Parcial 2 -->
+                <button type="button" id="botao-comecar" class="botao-azul botao-largo">COMEÇAR</button>
+                <button type="button" id="botao-recomecar" class="botao-azul botao-largo">RECOMEÇAR</button>
+            </section>
+
+            <div class="modos">
+                <button type="button" id="botao-classico" class="botao-azul botao-modo botao-classico">MODO<br>CLÁSSICO</button>
+                <button type="button" id="botao-explosivo" class="botao-azul botao-modo botao-explosivo selecionado">MODO<br>EXPLOSIVO</button>
+                <a class="botao-azul botao-ranking" href="ranking.html">RANKING<br>GLOBAL</a>
+            </div>
+        </aside>
+
+        <main class="area-jogo">
+            <header class="placar">
+                <div class="placar-dados">
+                    <span>Pontuação:</span>
+                    <span id="pontuacao">00</span>
+                    <span>% Acertos:</span>
+                    <span id="porcentagem-acertos">00</span>
+                </div>
+
+                <h1 id="titulo-modo" class="titulo-modo titulo-explosivo">MODO <span id="nome-modo" class="nome-modo">EXPLOSIVO</span></h1>
+
+                <div class="placar-dados placar-direita">
+                    <span>Fase:</span>
+                    <span id="fase">00</span>
+                    <span>Tempo:</span>
+                    <span id="tempo">00</span>
+                </div>
+            </header>
+
+            <!-- Tabuleiro fixo de 6 linhas x 4 colunas; a classe modo-explosivo mostra as bombas -->
+            <div id="tabuleiro" class="tabuleiro modo-explosivo">
+                <div class="linha">
+                    <div class="buraco"></div>
+                    <div class="buraco">
+                        <img class="bomba" src="Imgs/bomba.png" alt="Bomba">
+                    </div>
+                    <div class="buraco"></div>
+                    <div class="buraco"></div>
+                </div>
+                <div class="linha linha-deslocada">
+                    <div class="buraco"></div>
+                    <div class="buraco"></div>
+                    <div class="buraco">
+                        <img class="toupeira" src="Imgs/toupeira.png" alt="Toupeira">
+                    </div>
+                    <div class="buraco"></div>
+                </div>
+                <div class="linha">
+                    <div class="buraco"></div>
+                    <div class="buraco">
+                        <img class="toupeira" src="Imgs/toupeira.png" alt="Toupeira">
+                    </div>
+                    <div class="buraco"></div>
+                    <div class="buraco"></div>
+                </div>
+                <div class="linha linha-deslocada">
+                    <div class="buraco"></div>
+                    <div class="buraco"></div>
+                    <div class="buraco"></div>
+                    <div class="buraco"></div>
+                </div>
+                <div class="linha">
+                    <div class="buraco"></div>
+                    <div class="buraco"></div>
+                    <div class="buraco">
+                        <img class="bomba" src="Imgs/bomba.png" alt="Bomba">
+                    </div>
+                    <div class="buraco"></div>
+                </div>
+                <div class="linha linha-deslocada">
+                    <div class="buraco">
+                        <img class="toupeira" src="Imgs/toupeira.png" alt="Toupeira">
+                    </div>
+                    <div class="buraco"></div>
+                    <div class="buraco"></div>
+                    <div class="buraco"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <section id="historico" class="historico">
+        <h2 class="titulo-historico">Histórico de partidas</h2>
+        <table class="tabela-historico">
+            <thead>
+                <tr>
+                    <th>Jogador</th>
+                    <th>Tabuleiro</th>
+                    <th>Modalidade</th>
+                    <th>Pontuação</th>
+                    <th>Nível</th>
+                    <th>Data/Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>nomeusu</td>
+                    <td>6 × 4</td>
+                    <td>Explosiva</td>
+                    <td>0127</td>
+                    <td>3</td>
+                    <td>01/10/2026 19:42</td>
+                </tr>
+                <tr>
+                    <td>nomeusu</td>
+                    <td>4 × 4</td>
+                    <td>Clássica</td>
+                    <td>0150</td>
+                    <td>4</td>
+                    <td>01/10/2026 19:30</td>
+                </tr>
+                <tr>
+                    <td>nomeusu</td>
+                    <td>8 × 8</td>
+                    <td>Explosiva</td>
+                    <td>0098</td>
+                    <td>2</td>
+                    <td>30/09/2026 21:15</td>
+                </tr>
+                <tr>
+                    <td>nomeusu</td>
+                    <td>5 × 6</td>
+                    <td>Clássica</td>
+                    <td>0112</td>
+                    <td>3</td>
+                    <td>29/09/2026 18:05</td>
+                </tr>
+                <tr>
+                    <td>nomeusu</td>
+                    <td>2 × 2</td>
+                    <td>Clássica</td>
+                    <td>0034</td>
+                    <td>1</td>
+                    <td>28/09/2026 20:50</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script src="js/jogo.js"></script>
+</body>
+</html>

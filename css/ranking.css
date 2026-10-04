@@ -1,0 +1,137 @@
+body {
+    min-height: 100vh;
+    padding: 1.4rem 0.8rem 1.5rem 1.4rem;
+    background-color: #A9A9A9;
+}
+
+/* Cabeçalho em 3 colunas: botão, título e jogador */
+.cabecalho-ranking {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.botao-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12.2rem;
+    height: 3.9rem;
+    background-color: var(--azul-marinho);
+    border-radius: 0.75rem;
+    color: var(--branco);
+    font-size: 1.3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.titulo-ranking {
+    color: var(--azul-marinho);
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.jogador {
+    display: flex;
+    justify-self: end;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.nome-jogador {
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+.posicoes-jogador {
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+.posicao-classico {
+    color: var(--azul-marinho);
+}
+
+.posicao-explosivo {
+    margin-left: 0.5rem;
+    color: var(--vermelho);
+}
+
+/* Duas tabelas lado a lado */
+.tabelas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.7rem;
+    margin-top: 1.8rem;
+}
+
+.painel {
+    border-radius: 0.75rem;
+}
+
+.painel-classico {
+    background-color: var(--cinza-claro);
+}
+
+.painel-explosivo {
+    background-color: #F0C2C2;
+}
+
+.titulo-painel {
+    padding: 0.6rem;
+    border-bottom: 1px solid var(--preto);
+    font-size: 1.9rem;
+    font-style: italic;
+    font-weight: 900;
+    text-align: center;
+}
+
+.titulo-classico {
+    color: var(--azul-marinho);
+}
+
+.titulo-explosivo {
+    color: var(--vermelho);
+}
+
+/* border-spacing cria o espaço vertical entre as linhas da tabela */
+.tabela {
+    width: 100%;
+    padding: 0 0.6rem;
+    border-collapse: separate;
+    border-spacing: 0 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.tabela th {
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.tabela td {
+    padding: 0 0.6rem;
+    background-color: var(--cinza-medio);
+    line-height: 1.1;
+    text-align: center;
+}
+
+/* Primeira coluna (posição) à esquerda e última (pontuação) à direita */
+.tabela th:first-child,
+.tabela td:first-child {
+    text-align: left;
+}
+
+.tabela th:last-child,
+.tabela td:last-child {
+    text-align: right;
+}
+
+.tabela td:first-child {
+    border-radius: 1rem 0 0 1rem;
+}
+
+.tabela td:last-child {
+    border-radius: 0 1rem 1rem 0;
+}

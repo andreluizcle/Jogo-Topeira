@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Cadastro - Acerte a Toupeira</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,800;1,900&amp;display=swap">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/formulario.css">
+    <link rel="stylesheet" href="css/alterar-cadastro.css">
+</head>
+<body>
+    <main class="cartao cartao-grande">
+        <h1 class="titulo titulo-grande titulo-alterar">ALTERAR CADASTRO</h1>
+
+        <!-- Username, CPF e data de nascimento não podem ser alterados -->
+        <form id="formulario-alterar" class="formulario-alterar">
+            <div class="dados-pessoais">
+                <input class="campo" type="text" id="nome-completo" name="nome-completo" placeholder="Nome Completo" aria-label="Nome Completo">
+                <input class="campo" type="email" id="email" name="email" placeholder="E-mail" aria-label="E-mail">
+                <input class="campo" type="tel" id="telefone" name="telefone" placeholder="Telefone" aria-label="Telefone">
+            </div>
+
+            <div class="linha-dupla linha-senha">
+                <input class="campo" type="password" id="senha-nova" name="senha-nova" placeholder="Senha Nova" aria-label="Senha Nova">
+                <input class="campo" type="password" id="confirmar-senha-nova" name="confirmar-senha-nova" placeholder="Confirmar Senha Nova" aria-label="Confirmar Senha Nova">
+            </div>
+
+            <div>
+                <button class="botao-rosa botao-grande" type="submit">CONFIRMAR ALTERAÇÕES</button>
+                <p id="mensagem-erro" class="mensagem-erro"></p>
+            </div>
+        </form>
+    </main>
+
+    <script src="js/alterar-cadastro.js"></script>
+</body>
+</html>

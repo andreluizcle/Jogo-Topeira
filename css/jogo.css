@@ -1,0 +1,309 @@
+body {
+    background-color: #A9A9A9;
+}
+
+/* Lateral à esquerda e área do jogo à direita */
+.pagina-jogo {
+    display: grid;
+    grid-template-columns: 36.5% 1fr;
+    min-height: 100vh;
+}
+
+/* ---------- Lateral ---------- */
+.lateral {
+    display: flex;
+    flex-direction: column;
+    background-color: #B85A2B;
+    color: var(--branco);
+}
+
+.perfil {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 21.8vh;
+    min-height: 7rem;
+    padding: 0 2.3rem 0 1.7rem;
+    border-bottom: 1px solid #3A1A0C;
+}
+
+.nome-jogador {
+    font-size: 1.75rem;
+    font-weight: 300;
+}
+
+.link-sair {
+    color: var(--branco);
+    font-size: 1rem;
+    text-decoration: underline;
+}
+
+/* Caractere de engrenagem usado no lugar de uma imagem */
+.engrenagem {
+    color: var(--preto);
+    font-size: 3.4rem;
+    line-height: 1;
+}
+
+.opcoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1rem 2.5rem 1.3rem;
+    border-bottom: 1px solid #3A1A0C;
+}
+
+.titulo-opcoes {
+    font-size: 2.4rem;
+    font-weight: 200;
+    line-height: 1.1;
+}
+
+.opcao {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+}
+
+.rotulo-opcao {
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 800;
+    line-height: 1.7;
+}
+
+.contador {
+    display: flex;
+    gap: 0.1rem;
+}
+
+.numero-toupeiras {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.6rem;
+    height: 3.6rem;
+    background-color: var(--preto);
+    border-radius: 0.3rem;
+    font-size: 2.3rem;
+    font-weight: 300;
+}
+
+.setas {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.seta {
+    width: 1.8rem;
+    height: 1.75rem;
+    padding: 0;
+    background-color: var(--preto);
+    border: none;
+    border-radius: 0.2rem;
+    color: var(--branco);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.dimensoes {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.campo-dimensao {
+    width: 3.6rem;
+    height: 2.2rem;
+    background-color: var(--preto);
+    border: none;
+    border-radius: 0.3rem;
+    color: var(--branco);
+    font-family: inherit;
+    font-size: 1.3rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.vezes {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.botao-azul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.9rem;
+    background-color: var(--azul-marinho);
+    border: none;
+    border-radius: 0.9rem;
+    color: var(--branco);
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.botao-largo {
+    width: 100%;
+}
+
+.modos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4rem;
+    padding: 1.7rem 1.8rem;
+}
+
+.botao-modo {
+    font-style: italic;
+}
+
+/* Destaque do modo escolhido (a classe selecionado é trocada pelo jogo.js) */
+.botao-classico.selecionado {
+    background-color: var(--branco);
+    color: var(--azul-marinho);
+}
+
+.botao-explosivo.selecionado {
+    background-color: var(--vermelho);
+}
+
+.botao-ranking {
+    grid-column: 1 / 3;
+    justify-self: center;
+    width: 12.2rem;
+}
+
+/* ---------- Área do jogo ---------- */
+.area-jogo {
+    display: flex;
+    flex-direction: column;
+}
+
+.placar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    height: 16.5vh;
+    min-height: 6rem;
+    padding: 0 1.7rem 0 1.3rem;
+    background-color: var(--cinza-claro);
+}
+
+.placar-dados {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    column-gap: 0.4rem;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.placar-direita {
+    justify-content: end;
+}
+
+.titulo-modo {
+    color: var(--azul-marinho);
+    font-size: 2.25rem;
+    font-style: italic;
+    font-weight: 900;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.titulo-explosivo {
+    color: var(--vermelho);
+}
+
+/* display: block faz o nome do modo ir para a linha de baixo */
+.nome-modo {
+    display: block;
+}
+
+.tabuleiro {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 5vh;
+    padding-top: 9vh;
+    padding-bottom: 5vh;
+    background-color: var(--cinza-medio);
+}
+
+.linha {
+    display: flex;
+    gap: 2.3vw;
+    padding-left: 2.1vw;
+}
+
+/* Linhas pares começam mais à direita */
+.linha-deslocada {
+    padding-left: 9vw;
+}
+
+/* Elipse do buraco; as imagens ficam apoiadas na parte de baixo */
+.buraco {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 11.3vw;
+    height: 7vh;
+    background-color: #933207;
+    border-radius: 50%;
+}
+
+.toupeira {
+    height: 10vh;
+    margin-bottom: 2.4vh;
+}
+
+/* Bombas ficam escondidas no modo clássico */
+.bomba {
+    display: none;
+    height: 14vh;
+    margin-bottom: 1vh;
+    margin-left: 1.5rem;
+}
+
+.modo-explosivo .bomba {
+    display: block;
+}
+
+/* ---------- Histórico ---------- */
+.historico {
+    padding: 2rem 1.4rem;
+}
+
+.titulo-historico {
+    margin-bottom: 1rem;
+    color: var(--azul-marinho);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.tabela-historico {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--cinza-claro);
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.tabela-historico th {
+    padding: 0.6rem;
+    background-color: var(--azul-marinho);
+    color: var(--branco);
+    font-weight: 700;
+}
+
+.tabela-historico td {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--cinza-medio);
+    font-weight: 300;
+}
