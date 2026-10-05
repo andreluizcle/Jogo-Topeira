@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/jogo.css">
 </head>
 <body>
-    <div class="pagina-jogo">
+    <div id="pagina-jogo" class="pagina-jogo">
         <aside class="lateral">
             <div class="perfil">
                 <div class="avatar"></div>
@@ -45,7 +45,7 @@
                     </div>
                 </div>
 
-                <!-- COMEÇAR e RECOMEÇAR só ganharão comportamento na Parcial 2 -->
+                <!-- Durante a partida o jogo.js troca o texto de COMEÇAR para DESISTIR -->
                 <button type="button" id="botao-comecar" class="botao-azul botao-largo">COMEÇAR</button>
                 <button type="button" id="botao-recomecar" class="botao-azul botao-largo">RECOMEÇAR</button>
             </section>
@@ -64,6 +64,8 @@
                     <span id="pontuacao">00</span>
                     <span>% Acertos:</span>
                     <span id="porcentagem-acertos">00</span>
+                    <span class="meta">Meta da fase:</span>
+                    <span id="meta" class="meta">70%</span>
                 </div>
 
                 <h1 id="titulo-modo" class="titulo-modo titulo-explosivo">MODO <span id="nome-modo" class="nome-modo">EXPLOSIVO</span></h1>
@@ -76,53 +78,14 @@
                 </div>
             </header>
 
-            <!-- Tabuleiro fixo de 6 linhas x 4 colunas; a classe modo-explosivo mostra as bombas -->
-            <div id="tabuleiro" class="tabuleiro modo-explosivo">
-                <div class="linha">
-                    <div class="buraco"></div>
-                    <div class="buraco">
-                        <img class="bomba" src="Imgs/bomba.png" alt="Bomba">
-                    </div>
-                    <div class="buraco"></div>
-                    <div class="buraco"></div>
-                </div>
-                <div class="linha linha-deslocada">
-                    <div class="buraco"></div>
-                    <div class="buraco"></div>
-                    <div class="buraco">
-                        <img class="toupeira" src="Imgs/toupeira.png" alt="Toupeira">
-                    </div>
-                    <div class="buraco"></div>
-                </div>
-                <div class="linha">
-                    <div class="buraco"></div>
-                    <div class="buraco">
-                        <img class="toupeira" src="Imgs/toupeira.png" alt="Toupeira">
-                    </div>
-                    <div class="buraco"></div>
-                    <div class="buraco"></div>
-                </div>
-                <div class="linha linha-deslocada">
-                    <div class="buraco"></div>
-                    <div class="buraco"></div>
-                    <div class="buraco"></div>
-                    <div class="buraco"></div>
-                </div>
-                <div class="linha">
-                    <div class="buraco"></div>
-                    <div class="buraco"></div>
-                    <div class="buraco">
-                        <img class="bomba" src="Imgs/bomba.png" alt="Bomba">
-                    </div>
-                    <div class="buraco"></div>
-                </div>
-                <div class="linha linha-deslocada">
-                    <div class="buraco">
-                        <img class="toupeira" src="Imgs/toupeira.png" alt="Toupeira">
-                    </div>
-                    <div class="buraco"></div>
-                    <div class="buraco"></div>
-                    <div class="buraco"></div>
+            <!-- Os buracos são criados pelo jogo.js de acordo com as linhas e colunas escolhidas -->
+            <div id="tabuleiro" class="tabuleiro"></div>
+
+            <div id="aviso" class="aviso escondido" aria-live="polite">
+                <p id="texto-aviso" class="texto-aviso"></p>
+                <div id="botoes-aviso" class="botoes-aviso">
+                    <button type="button" id="botao-nova-partida" class="botao-aviso">NOVA PARTIDA</button>
+                    <button type="button" id="botao-fechar-aviso" class="botao-aviso">FECHAR</button>
                 </div>
             </div>
         </main>
@@ -141,46 +104,10 @@
                     <th>Data/Hora</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>nomeusu</td>
-                    <td>6 × 4</td>
-                    <td>Explosiva</td>
-                    <td>0127</td>
-                    <td>3</td>
-                    <td>01/10/2026 19:42</td>
-                </tr>
-                <tr>
-                    <td>nomeusu</td>
-                    <td>4 × 4</td>
-                    <td>Clássica</td>
-                    <td>0150</td>
-                    <td>4</td>
-                    <td>01/10/2026 19:30</td>
-                </tr>
-                <tr>
-                    <td>nomeusu</td>
-                    <td>8 × 8</td>
-                    <td>Explosiva</td>
-                    <td>0098</td>
-                    <td>2</td>
-                    <td>30/09/2026 21:15</td>
-                </tr>
-                <tr>
-                    <td>nomeusu</td>
-                    <td>5 × 6</td>
-                    <td>Clássica</td>
-                    <td>0112</td>
-                    <td>3</td>
-                    <td>29/09/2026 18:05</td>
-                </tr>
-                <tr>
-                    <td>nomeusu</td>
-                    <td>2 × 2</td>
-                    <td>Clássica</td>
-                    <td>0034</td>
-                    <td>1</td>
-                    <td>28/09/2026 20:50</td>
+            <!-- As partidas são adicionadas pelo jogo.js; sem back-end, o histórico some ao recarregar a página -->
+            <tbody id="corpo-historico">
+                <tr id="linha-vazia">
+                    <td colspan="6">Nenhuma partida jogada ainda.</td>
                 </tr>
             </tbody>
         </table>

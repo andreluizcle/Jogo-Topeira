@@ -3,7 +3,7 @@ const senha = document.getElementById("senha");
 const confirmarSenha = document.getElementById("confirmar-senha");
 const mensagemErro = document.getElementById("mensagem-erro");
 
-formulario.addEventListener("submit", function (evento) {
+function confirmarCadastro(evento) {
     // preventDefault impede o formulário de recarregar a página
     evento.preventDefault();
 
@@ -13,4 +13,6 @@ formulario.addEventListener("submit", function (evento) {
     }
 
     window.location.href = "index.html";
-});
+}
+
+formulario.addEventListener("submit", confirmarCadastro);

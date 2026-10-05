@@ -147,6 +147,14 @@ body {
     text-align: center;
 }
 
+/* Configurações travadas durante a partida */
+.botao-azul:disabled,
+.seta:disabled,
+.campo-dimensao:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 .botao-largo {
     width: 100%;
 }
@@ -204,6 +212,11 @@ body {
     line-height: 1.25;
 }
 
+.meta {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
 .placar-direita {
     justify-content: end;
 }
@@ -230,49 +243,120 @@ body {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    gap: 5vh;
-    padding-top: 9vh;
-    padding-bottom: 5vh;
+    justify-content: space-evenly;
+    padding: 3vh 0;
     background-color: var(--cinza-medio);
 }
 
+/* As duas linhas têm a mesma largura útil, então os buracos ficam do mesmo tamanho */
 .linha {
     display: flex;
+    justify-content: center;
+    align-items: flex-end;
     gap: 2.3vw;
-    padding-left: 2.1vw;
+    padding: 0 7.2vw 0 2.1vw;
 }
 
 /* Linhas pares começam mais à direita */
 .linha-deslocada {
-    padding-left: 9vw;
+    padding: 0 2.4vw 0 9vw;
 }
 
-/* Elipse do buraco; as imagens ficam apoiadas na parte de baixo */
+/* Elipse do buraco; flex: 1 divide o espaço entre as colunas e aspect-ratio mantém o formato.
+   min-height: 0 impede que a imagem dentro dele estique o buraco */
 .buraco {
     display: flex;
+    flex: 1;
     justify-content: center;
     align-items: flex-end;
-    width: 11.3vw;
-    height: 7vh;
+    max-width: 11.3vw;
+    min-height: 0;
+    aspect-ratio: 29 / 10;
     background-color: #933207;
     border-radius: 50%;
 }
 
+/* Tamanhos em % da largura do buraco, para acompanhar qualquer tabuleiro */
 .toupeira {
-    height: 10vh;
-    margin-bottom: 2.4vh;
+    width: 50%;
+    margin-bottom: 12%;
+    cursor: pointer;
 }
 
-/* Bombas ficam escondidas no modo clássico */
 .bomba {
-    display: none;
-    height: 14vh;
-    margin-bottom: 1vh;
-    margin-left: 1.5rem;
+    width: 70%;
+    margin-bottom: 5%;
+    margin-left: 10%;
+    cursor: pointer;
 }
 
-.modo-explosivo .bomba {
-    display: block;
+/* Caixa de aviso que fica por cima do tabuleiro */
+.area-jogo {
+    position: relative;
+}
+
+.aviso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 26rem;
+    max-width: 90%;
+    padding: 1.5rem;
+    background-color: var(--azul-marinho);
+    border-radius: 0.9rem;
+    color: var(--branco);
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.texto-aviso {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.botoes-aviso {
+    display: flex;
+    gap: 1rem;
+}
+
+.botao-aviso {
+    padding: 0.6rem 1.2rem;
+    background-color: var(--branco);
+    border: none;
+    border-radius: 0.6rem;
+    color: var(--azul-marinho);
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+/* Tremor da tela quando uma bomba explode */
+@keyframes tremer {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(-8px, 4px);
+    }
+    40% {
+        transform: translate(8px, -4px);
+    }
+    60% {
+        transform: translate(-6px, 2px);
+    }
+    80% {
+        transform: translate(6px, -2px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.tremendo {
+    animation: tremer 0.4s;
 }
 
 /* ---------- Histórico ---------- */
@@ -306,4 +390,9 @@ body {
     padding: 0.5rem;
     border-bottom: 1px solid var(--cinza-medio);
     font-weight: 300;
+}
+
+/* Esconde qualquer elemento (usado pelo jogo.js) */
+.escondido {
+    display: none;
 }

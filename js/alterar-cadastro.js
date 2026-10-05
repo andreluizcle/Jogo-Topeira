@@ -3,7 +3,7 @@ const senhaNova = document.getElementById("senha-nova");
 const confirmarSenhaNova = document.getElementById("confirmar-senha-nova");
 const mensagemErro = document.getElementById("mensagem-erro");
 
-formulario.addEventListener("submit", function (evento) {
+function confirmarAlteracoes(evento) {
     // preventDefault impede o formulário de recarregar a página
     evento.preventDefault();
 
@@ -14,4 +14,6 @@ formulario.addEventListener("submit", function (evento) {
     }
 
     window.location.href = "jogo.html";
-});
+}
+
+formulario.addEventListener("submit", confirmarAlteracoes);
